@@ -24,7 +24,11 @@ function App() {
       <div style={{ fontSize: "2rem", textAlign: "center" }}>Lose Win</div>
       <HangmanDrawing />
       <HangmanWord />
-      <Keyboard />
+      {/* need the keyboard to take the grid style not fles display */}
+      <div style={{ alignSelf: "stretch" }}>
+        {" "}
+        <Keyboard />
+      </div>
     </div>
   );
 }
