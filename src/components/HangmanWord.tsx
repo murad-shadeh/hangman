@@ -1,6 +1,13 @@
-export default function HangmanWord() {
-  const word = "test";
-  const guessedLetters = ["t", "a", "n"];
+type HangmanWordProps = {
+  guessedLetters: string[];
+  wordToGuess: string;
+  reveal?: boolean;
+};
+export default function HangmanWord({
+  guessedLetters,
+  wordToGuess,
+  reveal = false,
+}: HangmanWordProps) {
   return (
     <div
       style={{
@@ -13,15 +20,20 @@ export default function HangmanWord() {
       }}
     >
       {/* we need to render each character individually */}
-      {word.split("").map((letter, index) => (
+      {wordToGuess.split("").map((letter, index) => (
         // for each letter we need to put a certain style underneath it
         <span key={index} style={{ borderBottom: ".1em solid black" }}>
           <span
             // show letter if it is guessed otherwise hide it
             style={{
-              visibility: guessedLetters.includes(letter)
-                ? "visible"
-                : "hidden",
+              visibility:
+                guessedLetters.includes(letter) || reveal
+                  ? "visible"
+                  : "hidden",
+              color:
+                !guessedLetters.includes(letter) && reveal
+                  ? "darkred"
+                  : "black",
             }}
           >
             {letter}
