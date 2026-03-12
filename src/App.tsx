@@ -77,8 +77,8 @@ function App() {
       }}
     >
       <div style={{ fontSize: "2rem", textAlign: "center" }}>
-        {isWin && "You Win 🤩, refresh to play again"}
-        {isLose && "You Lost 🙁, refresh to play again"}
+        {isWin && "You Win 🤩, refresh or press Enter to play again"}
+        {isLose && "You Lost 🙁, refresh or press Enter to play again"}
       </div>
       <HangmanDrawing numberOfGuesses={incorrectLetters.length} />
       {/* we need to also to reveal the answer if we lost */}
@@ -87,9 +87,8 @@ function App() {
         guessedLetters={guessedLetters}
         wordToGuess={wordToGuess}
       />
-      {/* need the keyboard to take the grid style not fles display */}
+      {/* need the keyboard to take the grid style not flex display */}
       <div style={{ alignSelf: "stretch" }}>
-        {" "}
         {/* we need to pass the letter that are active that we clicked along with the ones we didn't */}
         {/* we need to disable the keyboard is we lost or won */}
         <Keyboard
